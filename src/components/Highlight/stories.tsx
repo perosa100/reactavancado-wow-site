@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Highlight, { HighlightProps } from '.'
+
 import item from './mock'
+
+import Highlight, { HighlightProps } from '.'
 
 export default {
   title: 'Highlight',

@@ -1,9 +1,8 @@
+import * as GameCardSliderStyles from 'components/GameCardSlider/styles'
+import * as HeadingStyles from 'components/Heading/styles'
+import * as HighlightStyles from 'components/Highlight/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-
-import * as HeadingStyles from 'components/Heading/styles'
-import * as GameCardSliderStyles from 'components/GameCardSlider/styles'
-import * as HighlightStyles from 'components/Highlight/styles'
 
 const Sections = styled.section`
   ${({ theme }) => css`
