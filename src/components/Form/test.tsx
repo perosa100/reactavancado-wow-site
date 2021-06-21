@@ -1,13 +1,64 @@
-import { render, screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
-import Form from '.'
+import { FormLink, FormWrapper } from '.'
 
 describe('<Form />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Form />)
+    const { container } = renderWithTheme(
+      <FormWrapper>
+        <FormLink>
+          My nice <a href="#">link</a>
+        </FormLink>
+      </FormWrapper>
+    )
 
-    expect(screen.getByRole('heading', { name: /Form/i })).toBeInTheDocument()
+    expect(container.parentElement).toMatchInlineSnapshot(`
+      .c0 .sc-AxheI {
+        margin: 0.8rem 0;
+      }
 
-    expect(container.firstChild).toMatchSnapshot()
+      .c0 .sc-AxjAm {
+        margin: 3.2rem auto 1.6rem;
+      }
+
+      .c1 {
+        font-size: 1.4rem;
+        color: #030517;
+        text-align: center;
+      }
+
+      .c1 a {
+        color: #3CD3C1;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        border-bottom: 0.1rem solid #3CD3C1;
+        -webkit-transition: color,border,0.1s ease-in-out;
+        transition: color,border,0.1s ease-in-out;
+      }
+
+      .c1 a:hover {
+        color: #29b3a3;
+        border-bottom: 0.1rem solid #29b3a3;
+      }
+
+      <body>
+        <div>
+          <div
+            class="c0"
+          >
+            <div
+              class="c1"
+            >
+              My nice 
+              <a
+                href="#"
+              >
+                link
+              </a>
+            </div>
+          </div>
+        </div>
+      </body>
+    `)
   })
 })

@@ -45,6 +45,11 @@ export const BannerContent = styled.div`
     position: relative;
     z-index: ${theme.layers.base};
 
+    a {
+      width: fit-content;
+      height: fit-content;
+    }
+
     ${media.lessThan('medium')`
       display:none;
     `}
