@@ -27,10 +27,13 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "^3.3.20",
+    "@styled-icons/boxicons-regular": "^10.34.0",
     "@styled-icons/boxicons-solid": "^10.34.0",
     "@styled-icons/fa-brands": "^10.34.0",
     "@styled-icons/material-outlined": "^10.18.0",
     "@styled-icons/remix-fill": "^10.18.0",
+    "graphql": "^15.5.1",
     "next": "9.5.3",
     "next-pwa": "^3.1.4",
     "polished": "^3.6.6",
@@ -43,8 +46,8 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-typescript": "^7.10.4",
-    "@storybook/addon-essentials": "6.0.21",
-    "@storybook/react": "6.0.21",
+    "@storybook/addon-essentials": "6.3.2",
+    "@storybook/react": "6.3.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.8",

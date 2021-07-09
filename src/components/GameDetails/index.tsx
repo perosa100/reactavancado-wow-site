@@ -18,7 +18,6 @@ export type GameDetailsProps = {
 }
 
 const GameDetails = ({
-  developer,
   releaseDate,
   platforms,
   rating,
