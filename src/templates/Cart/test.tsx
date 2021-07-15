@@ -10,10 +10,11 @@ import Cart from '.'
 
 const props = {
   items: itemsMock,
-  total: '$ 430,00',
+  total: 430,
   cards: cardsMock,
   recommendedHighlight: highlightMock,
-  recommendedGames: gamesMock
+  recommendedGames: gamesMock,
+  recommendedTitle: 'You may like these games'
 }
 
 jest.mock('templates/Base', () => ({

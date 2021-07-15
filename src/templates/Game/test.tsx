@@ -17,7 +17,9 @@ const props: GameTemplateProps = {
   details: gameDetailsMock as GameDetailsProps,
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
-  recommendedGames: gamesMock
+  recommendedGames: gamesMock,
+  recommendedTitle: 'You may like these games',
+  upcommingTitle: 'Upcomming Games'
 }
 
 jest.mock('components/Menu', () => ({

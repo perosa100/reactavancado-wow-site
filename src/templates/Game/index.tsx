@@ -18,6 +18,8 @@ export type GameTemplateProps = {
   upcomingGames: GameCardProps[]
   upcomingHighlight: HighlightProps
   recommendedGames: GameCardProps[]
+  recommendedTitle: string
+  upcommingTitle: string
 }
 
 const Game = ({
@@ -28,37 +30,44 @@ const Game = ({
   details,
   upcomingGames,
   upcomingHighlight,
-  recommendedGames
-}: GameTemplateProps) => (
-  <Base>
-    <S.Cover src={cover} role="image" aria-label="cover" />
+  recommendedGames,
+  recommendedTitle,
+  upcommingTitle
+}: GameTemplateProps) => {
+  return (
+    <Base>
+      <S.Cover src={cover} role="image" aria-label="cover" />
 
-    <S.Main>
-      <S.SectionGameInfo>
-        <GameInfo {...gameInfo} />
-      </S.SectionGameInfo>
+      <S.Main>
+        <S.SectionGameInfo>
+          <GameInfo {...gameInfo} />
+        </S.SectionGameInfo>
 
-      <S.SectionGallery>
-        {!!gallery && <Gallery items={gallery} />}
-      </S.SectionGallery>
+        <S.SectionGallery>
+          {!!gallery && <Gallery items={gallery} />}
+        </S.SectionGallery>
 
-      <S.SectionDescription>
-        <TextContent title="Description" content={description} />
-      </S.SectionDescription>
+        <S.SectionDescription>
+          <TextContent title="Description" content={description} />
+        </S.SectionDescription>
 
-      <S.SectionGameDetails>
-        <GameDetails {...details} />
-      </S.SectionGameDetails>
+        <S.SectionGameDetails>
+          <GameDetails {...details} />
+        </S.SectionGameDetails>
 
-      <Showcase
-        title="Upcoming"
-        games={upcomingGames}
-        highlight={upcomingHighlight}
-      />
+        <Showcase
+          title={upcommingTitle}
+          games={upcomingGames}
+          highlight={upcomingHighlight}
+        />
 
-      <Showcase title="You may like these games" games={recommendedGames} />
-    </S.Main>
-  </Base>
-)
+        <Showcase
+          title={recommendedTitle || 'You may like these games'}
+          games={recommendedGames}
+        />
+      </S.Main>
+    </Base>
+  )
+}
 
 export default Game

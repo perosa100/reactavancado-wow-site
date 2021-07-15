@@ -8,7 +8,7 @@ module.exports = {
     '!src/pages/**/*.tsx',
     '!src/styles/**/*.ts',
     '!src/types/*.ts',
-    '!src/utils/apollo.ts',
+    '!src/utils/**/*.ts',
     '!src/graphql/**/*.ts'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
