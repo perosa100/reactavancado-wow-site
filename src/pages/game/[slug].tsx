@@ -4,18 +4,18 @@ import {
 } from 'graphql/generated/QueryGameBySlug'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
 import { QueryRecommended } from 'graphql/generated/QueryRecommended'
-import { QueryUpcommingVariables } from 'graphql/generated/QueryUpcomming'
+import {
+  QueryUpcoming,
+  QueryUpcomingVariables
+} from 'graphql/generated/QueryUpcoming'
 import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
-import { QUERY_UPCOMMING } from 'graphql/queries/upcomming'
+import { QUERY_UPCOMING } from 'graphql/queries/upcoming'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Game, { GameTemplateProps } from 'templates/Game'
 import { initializeApollo } from 'utils/apollo'
-import formatPrice from 'utils/format-price'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
-
-import { QueryUpcomming } from './../../graphql/generated/QueryUpcomming'
 
 const apolloClient = initializeApollo()
 
@@ -45,44 +45,41 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const TODAY = new Date().toISOString().slice(0, 10)
-
-  //get game data
+  // Get game data
   const { data } = await apolloClient.query<
     QueryGameBySlug,
     QueryGameBySlugVariables
   >({
     query: QUERY_GAME_BY_SLUG,
-    variables: { slug: `${params?.slug}` }
+    variables: { slug: `${params?.slug}` },
+    fetchPolicy: 'no-cache'
   })
+
+  if (!data.games.length) {
+    return { notFound: true }
+  }
 
   const game = data.games[0]
 
-  //get recommended game
-
+  // get recommended games
   const { data: recommended } = await apolloClient.query<QueryRecommended>({
     query: QUERY_RECOMMENDED
   })
 
-  // get upcomming game highlight
-
-  const { data: upcomming } = await apolloClient.query<
-    QueryUpcomming,
-    QueryUpcommingVariables
-  >({
-    query: QUERY_UPCOMMING,
-    variables: {
-      date: TODAY
-    }
-  })
+  // get upcoming games and highlight
+  const TODAY = new Date().toISOString().slice(0, 10)
+  const { data: upcoming } = await apolloClient.query<
+    QueryUpcoming,
+    QueryUpcomingVariables
+  >({ query: QUERY_UPCOMING, variables: { date: TODAY } })
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: `http://localhost:1337${game.cover?.src}`,
       gameInfo: {
         title: game.name,
-        price: formatPrice(game.price),
+        price: game.price,
         description: game.short_description
       },
       gallery: game.gallery.map((image) => ({
@@ -98,10 +95,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         rating: game.rating,
         genres: game.categories.map((category) => category.name)
       },
-      upcommingTitle: upcomming.showcase?.upcomingGames?.title,
-      upcomingGames: gamesMapper(upcomming.upcomingGame),
+      upcomingTitle: upcoming.showcase?.upcomingGames?.title,
+      upcomingGames: gamesMapper(upcoming.upcomingGame),
       upcomingHighlight: highlightMapper(
-        upcomming.showcase?.upcomingGames?.highlight
+        upcoming.showcase?.upcomingGames?.highlight
       ),
       recommendedTitle: recommended.recommended?.section?.title,
       recommendedGames: gamesMapper(recommended.recommended?.section?.games)

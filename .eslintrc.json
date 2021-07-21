@@ -25,8 +25,14 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks","eslint-plugin-import-helpers", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "eslint-plugin-import-helpers",
+    "@typescript-eslint"
+  ],
   "rules": {
+    "prettier/prettier": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",

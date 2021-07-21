@@ -5,7 +5,7 @@ import filterItemsMock from 'components/ExploreSidebar/mock'
 import apolloCache from 'utils/apolloCache'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { fetchMoreMock, gamesMock } from './mocks'
+import { fetchMoreMock, gamesMock, noGamesMock } from './mocks'
 
 import Games from '.'
 
@@ -28,16 +28,6 @@ jest.mock('templates/Base', () => ({
 }))
 
 describe('<Games />', () => {
-  it('should render loading when starting the template', () => {
-    renderWithTheme(
-      <MockedProvider mocks={[]} addTypename={false}>
-        <Games filterItems={filterItemsMock} />
-      </MockedProvider>
-    )
-
-    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
-  })
-
   it('should render sections', async () => {
     renderWithTheme(
       <MockedProvider mocks={[gamesMock]} addTypename={false}>
@@ -45,12 +35,8 @@ describe('<Games />', () => {
       </MockedProvider>
     )
 
-    // it starts without data
-    // shows loading
-    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
-
     // we wait until we have data to get the elements
-    // get => tem certeza do elemento git
+    // get => tem certeza do elemento
     // query => Não tem o elemento
     // find => processos assincronos
     expect(await screen.findByText(/Price/i)).toBeInTheDocument()
@@ -58,6 +44,18 @@ describe('<Games />', () => {
 
     expect(
       await screen.findByRole('button', { name: /show more/i })
+    ).toBeInTheDocument()
+  })
+
+  it('should render empty when no games found', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[noGamesMock]} addTypename={false}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    expect(
+      await screen.findByText(/We didn't find any games with this filter/i)
     ).toBeInTheDocument()
   })
 
@@ -84,10 +82,11 @@ describe('<Games />', () => {
 
     userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
     userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
+    userEvent.click(await screen.findByLabelText(/low to high/i))
 
     expect(push).toHaveBeenCalledWith({
       pathname: '/games',
-      query: { platforms: ['windows', 'linux'] }
+      query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
     })
   })
 })

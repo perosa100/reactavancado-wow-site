@@ -1,4 +1,5 @@
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
+import Empty from 'components/Empty'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
 import { Grid } from 'components/Grid'
@@ -18,12 +19,19 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter()
 
   const { loading, data, fetchMore } = useQueryGames({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 15,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
       sort: query.sort as string | null
     }
   })
+
+  if (!data) return <p>loading</p>
+
+  const { games, gamesConnection } = data
+
+  const hasMoreGames = games.length < (gamesConnection?.values?.length || 0)
 
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
@@ -49,32 +57,46 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           onFilter={handleFilter}
         />
 
-        {loading ? (
-          <p style={{ color: '#fff' }}>Loading...</p>
-        ) : (
-          <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <GameCard
-                  key={game.slug}
-                  title={game.name}
-                  slug={game.slug}
-                  developer={game.developers[0]?.name}
-                  img={`http://localhost:1337${game.cover!.url}`}
-                  price={game.price}
-                />
-              ))}
-            </Grid>
-
-            <S.ShowMore role="button" onClick={handleShowMore}>
-              <p>Show More</p>
-              <ArrowDown size={35} />
-            </S.ShowMore>
-          </section>
-        )}
+        <section>
+          {data?.games.length ? (
+            <>
+              <Grid>
+                {data?.games.map((game) => (
+                  <GameCard
+                    key={game.slug}
+                    title={game.name}
+                    slug={game.slug}
+                    developer={game.developers[0]?.name}
+                    img={`http://localhost:1337${game.cover!.url}`}
+                    price={game.price}
+                  />
+                ))}
+              </Grid>
+              {hasMoreGames && (
+                <S.ShowMore>
+                  {loading ? (
+                    <S.ShowMoreLoading src="/img/dots.svg" alt="loading" />
+                  ) : (
+                    <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                      <p>Show More</p>
+                      <ArrowDown size={35} />
+                    </S.ShowMoreButton>
+                  )}
+                </S.ShowMore>
+              )}
+            </>
+          ) : (
+            <Empty
+              title=":("
+              description="We didn't find any games with this filter"
+            />
+          )}
+        </section>
       </S.Main>
     </Base>
   )
 }
 
 export default GamesTemplate
+//We didn't find any games with this filter
+// 9 11

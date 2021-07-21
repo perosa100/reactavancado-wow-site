@@ -55,3 +55,8 @@ git config --global core.editor code
 
 //abre git editor config
 git config --global --edit
+
+// att e mostra os pacotes
+yarn upgrade-interactive --latest
+rm -rf .next
+yarn build
