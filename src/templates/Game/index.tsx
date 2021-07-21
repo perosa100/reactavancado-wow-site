@@ -1,3 +1,4 @@
+import { Divider } from 'components/Divider'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import { GameCardProps } from 'components/GameCard'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
@@ -15,11 +16,11 @@ export type GameTemplateProps = {
   gallery?: GalleryImageProps[]
   description: string
   details: GameDetailsProps
+  upcomingTitle: string
   upcomingGames: GameCardProps[]
   upcomingHighlight: HighlightProps
-  recommendedGames: GameCardProps[]
   recommendedTitle: string
-  upcommingTitle: string
+  recommendedGames: GameCardProps[]
 }
 
 const Game = ({
@@ -28,46 +29,42 @@ const Game = ({
   gallery,
   description,
   details,
+  upcomingTitle,
   upcomingGames,
   upcomingHighlight,
-  recommendedGames,
   recommendedTitle,
-  upcommingTitle
-}: GameTemplateProps) => {
-  return (
-    <Base>
-      <S.Cover src={cover} role="image" aria-label="cover" />
+  recommendedGames
+}: GameTemplateProps) => (
+  <Base>
+    <S.Cover src={cover} role="image" aria-label="cover" />
 
-      <S.Main>
-        <S.SectionGameInfo>
-          <GameInfo {...gameInfo} />
-        </S.SectionGameInfo>
+    <S.Main>
+      <S.SectionGameInfo>
+        <GameInfo {...gameInfo} />
+      </S.SectionGameInfo>
 
-        <S.SectionGallery>
-          {!!gallery && <Gallery items={gallery} />}
-        </S.SectionGallery>
+      <S.SectionGallery>
+        {!!gallery && <Gallery items={gallery} />}
+      </S.SectionGallery>
 
-        <S.SectionDescription>
-          <TextContent title="Description" content={description} />
-        </S.SectionDescription>
+      <S.SectionDescription>
+        <TextContent title="Description" content={description} />
+      </S.SectionDescription>
 
-        <S.SectionGameDetails>
-          <GameDetails {...details} />
-        </S.SectionGameDetails>
+      <S.SectionGameDetails>
+        <GameDetails {...details} />
+        <Divider />
+      </S.SectionGameDetails>
 
-        <Showcase
-          title={upcommingTitle}
-          games={upcomingGames}
-          highlight={upcomingHighlight}
-        />
+      <Showcase
+        title={upcomingTitle}
+        games={upcomingGames}
+        highlight={upcomingHighlight}
+      />
 
-        <Showcase
-          title={recommendedTitle || 'You may like these games'}
-          games={recommendedGames}
-        />
-      </S.Main>
-    </Base>
-  )
-}
+      <Showcase title={recommendedTitle} games={recommendedGames} />
+    </S.Main>
+  </Base>
+)
 
 export default Game

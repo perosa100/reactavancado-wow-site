@@ -60,3 +60,18 @@ git config --global --edit
 yarn upgrade-interactive --latest
 rm -rf .next
 yarn build
+
+//instala depedencias do package.json
+yarn
+
+//adiciona um novo pacote
+yarn add pacote
+
+//remove um pacote
+yarn remove pacote
+
+//mostra lista de pacote desatualizados e quais vc quer atualizar.
+yarn upgrade-interactive --latest
+
+adiciona types em modo desenvolvimento
+yarn add @types/pacote -D
