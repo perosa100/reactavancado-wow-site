@@ -2,7 +2,7 @@ import gamesMock from 'components/GameCardSlider/mock'
 import { QUERY_HOME } from 'graphql/queries/home'
 import Home, { HomeTemplateProps } from 'templates/Home'
 import { initializeApollo } from 'utils/apollo'
-import { bannerMaper, gamesMapper, highlightMapper } from 'utils/mappers'
+import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mapper'
 
 import { QueryHome, QueryHomeVariables } from './../graphql/generated/QueryHome'
 
@@ -26,7 +26,7 @@ export async function getStaticProps() {
   return {
     revalidate: 10,
     props: {
-      banners: bannerMaper(banners),
+      banners: bannerMapper(banners),
       newGamesTitle: sections?.newGames?.title,
       newGames: gamesMapper(newGames),
 
