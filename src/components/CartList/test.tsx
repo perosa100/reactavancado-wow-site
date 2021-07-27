@@ -1,30 +1,39 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import { render, screen } from 'utils/test-utils'
 
-import mockItems from './mock'
+import items from './mock'
 
 import CartList from '.'
 
 describe('<CartList />', () => {
   it('should render the cart list', () => {
-    const { container } = renderWithTheme(
-      <CartList items={mockItems} total={330} />
-    )
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items,
+      total: 'R$ 330,00'
+    }
+
+    const { container } = render(<CartList />, { cartProviderProps })
 
     expect(screen.getAllByRole('heading')).toHaveLength(2)
-    expect(screen.getByText('330')).toHaveStyle({ color: '#F231A5' })
+    expect(screen.getByText('R$ 330,00')).toHaveStyle({ color: '#F231A5' })
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the button', () => {
-    renderWithTheme(<CartList items={mockItems} total={330} hasButton />)
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items
+    }
+
+    render(<CartList hasButton />, { cartProviderProps })
 
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
 
   it('should render empty if there are no games', () => {
-    renderWithTheme(<CartList />)
+    render(<CartList />)
 
     expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument()
     expect(screen.queryByText(/total/i)).not.toBeInTheDocument()

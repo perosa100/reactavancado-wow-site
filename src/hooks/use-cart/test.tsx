@@ -1,20 +1,20 @@
 import { MockedProvider } from '@apollo/client/testing'
-import { act, renderHook } from '@testing-library/react-hooks'
+import { act } from '@testing-library/react'
+import { renderHook } from '@testing-library/react-hooks'
 import { setStorageItem } from 'utils/localStorage'
 
 import { cartItems, gamesMock } from './mock'
 
-import { CartProviderProps, useCart, CartProvider } from '.'
+import { useCart, CartProvider, CartProviderProps } from '.'
 
 describe('useCart', () => {
   beforeEach(() => {
     window.localStorage.clear()
   })
-
   it('should return items and its info if there are any in the cart', async () => {
     const wrapper = ({ children }: CartProviderProps) => (
       <MockedProvider mocks={[gamesMock]}>
-        <CartProvider>{children} </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
 
@@ -25,17 +25,20 @@ describe('useCart', () => {
     })
 
     expect(result.current.loading).toBe(true)
+
     await waitForNextUpdate()
+
     expect(result.current.loading).toBe(false)
+
     expect(result.current.items).toStrictEqual(cartItems)
     expect(result.current.quantity).toBe(2)
     expect(result.current.total).toBe('$21.00')
   })
 
-  it('should return true /false if the item is already in the card', () => {
+  it('should return true/false if the item is already in the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
       <MockedProvider mocks={[gamesMock]}>
-        <CartProvider>{children} </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
 
@@ -52,7 +55,7 @@ describe('useCart', () => {
   it('should add item in the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
       <MockedProvider mocks={[gamesMock]}>
-        <CartProvider>{children} </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
 
@@ -70,12 +73,13 @@ describe('useCart', () => {
     )
   })
 
-  it('should remove item in the cart', () => {
+  it('should remove and item from the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
       <MockedProvider mocks={[gamesMock]}>
-        <CartProvider>{children} </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
+
     setStorageItem('cartItems', ['1'])
 
     const { result } = renderHook(() => useCart(), {
@@ -92,12 +96,13 @@ describe('useCart', () => {
     )
   })
 
-  it('should clear  the cart', () => {
+  it('should clear the cart', () => {
     const wrapper = ({ children }: CartProviderProps) => (
       <MockedProvider mocks={[gamesMock]}>
-        <CartProvider>{children} </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </MockedProvider>
     )
+
     setStorageItem('cartItems', ['1'])
 
     const { result } = renderHook(() => useCart(), {
