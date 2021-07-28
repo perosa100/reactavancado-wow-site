@@ -19,7 +19,7 @@ describe('<CartButton />', () => {
 
     userEvent.click(button)
     expect(cartProviderProps.addToCart).toHaveBeenCalledWith('1')
-    // expect(container.firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render button to remove and call the method if clicked', () => {

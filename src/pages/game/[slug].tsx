@@ -15,7 +15,7 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Game, { GameTemplateProps } from 'templates/Game'
 import { initializeApollo } from 'utils/apollo'
-import { gamesMapper, highlightMapper } from 'utils/mappers'
+import { gamesMapper, highlightMapper } from 'utils/mapper'
 
 const apolloClient = initializeApollo()
 

@@ -2,7 +2,7 @@ import gamesMock from 'components/GameCardSlider/mock'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
 import React from 'react'
 import Wishlist, { WishlistTemplateProps } from 'templates/Wishlist'
-import { gamesMapper, highlightMapper } from 'utils/mappers'
+import { gamesMapper, highlightMapper } from 'utils/mapper'
 
 import { QueryRecommended } from './../graphql/generated/QueryRecommended'
 import { initializeApollo } from './../utils/apollo'

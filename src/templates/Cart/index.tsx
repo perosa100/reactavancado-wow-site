@@ -22,8 +22,6 @@ const Cart = ({
   recommendedGames,
   recommendedHighlight,
   recommendedTitle,
-  items,
-  total,
   cards
 }: CartProps) => {
   const handlePayment = () => ({})
@@ -34,20 +32,11 @@ const Cart = ({
         <Heading lineLeft lineColor="secondary">
           My cart
         </Heading>
+        <S.Content>
+          <CartList />
 
-        {items?.length ? (
-          <S.Content>
-            <CartList items={items} total={total} />
-
-            <PaymentOptions cards={cards} handlePayment={handlePayment} />
-          </S.Content>
-        ) : (
-          <Empty
-            title={recommendedTitle || 'You may like these games'}
-            description="Go back to the store and explore great games and offers"
-            hasLink
-          />
-        )}
+          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+        </S.Content>
 
         <Divider />
       </Container>
