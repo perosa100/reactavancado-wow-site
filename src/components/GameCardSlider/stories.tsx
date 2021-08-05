@@ -1,9 +1,8 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+
 import { GameCardProps } from 'components/GameCard'
-
-import items from './mock'
-
 import GameCardSlider from '.'
+import items from './mock'
 
 export default {
   title: 'GameCardSlider',

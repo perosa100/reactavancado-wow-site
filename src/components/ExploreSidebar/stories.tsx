@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import ExploreSidebar, { ExploreSidebarProps } from '.'
 
 import items from './mock'
-
-import ExploreSidebar, { ExploreSidebarProps } from '.'
 
 export default {
   title: 'ExploreSidebar',

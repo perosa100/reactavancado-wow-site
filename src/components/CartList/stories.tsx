@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import CartList, { CartListProps } from '.'
 
 import items from './mock'
-
-import CartList, { CartListProps } from '.'
 
 export default {
   title: 'CartList',

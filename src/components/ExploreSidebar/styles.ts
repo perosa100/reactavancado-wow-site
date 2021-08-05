@@ -1,9 +1,10 @@
-import * as CheckboxStyles from 'components/Checkbox/styles'
-import * as HeadingStyles from 'components/Heading/styles'
-import * as RadioStyles from 'components/Radio/styles'
-import { rgba } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
+import { rgba } from 'polished'
+
+import * as CheckboxStyles from 'components/Checkbox/styles'
+import * as RadioStyles from 'components/Radio/styles'
+import * as HeadingStyles from 'components/Heading/styles'
 
 export const IconWrapper = styled.div`
   cursor: pointer;
@@ -59,10 +60,10 @@ export const Footer = styled.div`
   ${({ theme }) => css`
     box-shadow: 0 -0.2rem 0.4rem ${rgba(theme.colors.black, 0.2)};
     padding: ${theme.spacings.small};
-  `}
 
-  ${media.greaterThan('medium')`
-    display:none;
+    ${media.greaterThan('medium')`
+      display: none;
+    `}
   `}
 `
 

@@ -1,8 +1,7 @@
 import { render, screen } from 'utils/test-utils'
 
-import * as S from './styles'
-
 import Highlight from '.'
+import * as S from './styles'
 
 const props = {
   title: 'Heading 1',

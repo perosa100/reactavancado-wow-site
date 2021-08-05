@@ -1,8 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import PaymentOptions, { PaymentOptionsProps } from '.'
 
 import cardsMock from './mock'
-
-import PaymentOptions, { PaymentOptionsProps } from '.'
 
 export default {
   title: 'PaymentOptions',

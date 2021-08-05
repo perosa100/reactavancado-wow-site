@@ -4,8 +4,9 @@ import Logo from '.'
 
 describe('<Logo />', () => {
   it('should render the logo with id passed', () => {
-    const { container } = render(<Logo id="MyId" />)
-    expect(container.querySelector('#paint0_linear_MyId')).toBeInTheDocument()
+    const { container } = render(<Logo id="myId" />)
+
+    expect(container.querySelector('#paint_linear_myId')).toBeInTheDocument()
   })
 
   it('should render a white label by default', () => {

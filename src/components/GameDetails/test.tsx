@@ -4,38 +4,36 @@ import GameDetails, { GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {
   developer: 'Different Tales',
-  releaseDate: '2020-11-21T23:00:00',
+  publisher: 'Walktrough',
   platforms: ['windows', 'mac', 'linux'],
-  publisher: 'Walkabout',
+  releaseDate: '2020-11-21T23:00:00',
   rating: 'BR0',
   genres: ['Role-playing', 'Narrative']
 }
 
 describe('<GameDetails />', () => {
   it('should render the blocks', () => {
-    const { container } = render(<GameDetails {...props} />)
+    render(<GameDetails {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /Developer/i })
+      screen.getByRole('heading', { name: /developer/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Release Date/i })
+      screen.getByRole('heading', { name: /release date/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Platforms/i })
+      screen.getByRole('heading', { name: /platforms/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Publisher/i })
+      screen.getByRole('heading', { name: /publisher/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /Rating/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /rating/i })).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /Genres/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByRole('heading', { name: /genres/i })).toBeInTheDocument()
   })
 
   it('should render platform icons', () => {
@@ -46,22 +44,34 @@ describe('<GameDetails />', () => {
     expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
   })
 
-  it('should render the formated date', () => {
-    render(<GameDetails {...props} />)
-
-    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
-  })
-
-  it('should render free rating BR0 ', () => {
+  it('should render free rating when BR0', () => {
     render(<GameDetails {...props} />)
 
     expect(screen.getByText(/free/i)).toBeInTheDocument()
   })
 
-  it('should render 18+ rating BR18 ', () => {
+  it('should render the developer', () => {
+    render(<GameDetails {...props} />)
+
+    expect(screen.getByText(/Different Tales/i)).toBeInTheDocument()
+  })
+
+  it('should render the publisher', () => {
+    render(<GameDetails {...props} />)
+
+    expect(screen.getByText(/walktrough/i)).toBeInTheDocument()
+  })
+
+  it('should render 18+ rating when BR18', () => {
     render(<GameDetails {...props} rating="BR18" />)
 
     expect(screen.getByText(/18\+/i)).toBeInTheDocument()
+  })
+
+  it('should render the formated date', () => {
+    render(<GameDetails {...props} />)
+
+    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
   })
 
   it('should render a list of genres', () => {

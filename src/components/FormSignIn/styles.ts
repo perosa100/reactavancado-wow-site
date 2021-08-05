@@ -1,7 +1,7 @@
-import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 
-export const ForgetPassword = styled.a`
+export const ForgotPassword = styled.a`
   ${({ theme }) => css`
     display: block;
     font-size: ${theme.font.sizes.small};
@@ -10,7 +10,7 @@ export const ForgetPassword = styled.a`
     text-align: right;
 
     &:hover {
-      color: ${lighten(0.3, theme.colors.black)};
+      color: ${lighten(0.2, theme.colors.black)};
     }
   `}
 `

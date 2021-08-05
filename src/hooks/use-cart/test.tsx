@@ -3,9 +3,8 @@ import { act } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
 import { setStorageItem } from 'utils/localStorage'
 
-import { cartItems, gamesMock } from './mock'
-
 import { useCart, CartProvider, CartProviderProps } from '.'
+import { cartItems, gamesMock } from './mock'
 
 describe('useCart', () => {
   beforeEach(() => {

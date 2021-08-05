@@ -1,15 +1,15 @@
+import { useEffect, useState } from 'react'
+import xor from 'lodash.xor'
 import { Close } from '@styled-icons/material-outlined/Close'
 import { FilterList } from '@styled-icons/material-outlined/FilterList'
+
+import Heading from 'components/Heading'
 import Button from 'components/Button'
 import Checkbox from 'components/Checkbox'
-import Heading from 'components/Heading'
 import Radio from 'components/Radio'
-import xor from 'lodash.xor'
-import { ParsedUrlQueryInput } from 'querystring'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
 import * as S from './styles'
+import { ParsedUrlQueryInput } from 'querystring'
 
 export type ItemProps = {
   title: string
@@ -41,6 +41,8 @@ const ExploreSidebar = ({
 
   useEffect(() => {
     onFilter(values)
+    // this method comes from another template
+    // that we don't have access
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values])
 
@@ -48,7 +50,7 @@ const ExploreSidebar = ({
     setValues((s) => ({ ...s, [name]: value }))
   }
 
-  const handleCheckBox = (name: string, value: string) => {
+  const handleCheckbox = (name: string, value: string) => {
     const currentList = (values[name] as []) || []
     setValues((s) => ({ ...s, [name]: xor(currentList, [value]) }))
   }
@@ -82,7 +84,7 @@ const ExploreSidebar = ({
                   isChecked={(values[item.name] as string[])?.includes(
                     field.name
                   )}
-                  onCheck={() => handleCheckBox(item.name, field.name)}
+                  onCheck={() => handleCheckbox(item.name, field.name)}
                 />
               ))}
 

@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import cardsMock from 'components/PaymentOptions/mock'
-
 import CardsList, { CardsListProps } from '.'
+
+import cardsMock from 'components/PaymentOptions/mock'
 
 export default {
   title: 'Profile/CardsList',

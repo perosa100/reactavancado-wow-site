@@ -1,16 +1,17 @@
 import 'match-media-mock'
+import { render, screen } from 'utils/test-utils'
+
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import cardsMock from 'components/PaymentOptions/mock'
-import { render, screen } from 'utils/test-utils'
 
 import Cart from '.'
 
 const props = {
   cards: cardsMock,
+  recommendedTitle: 'You may like these games',
   recommendedHighlight: highlightMock,
-  recommendedGames: gamesMock,
-  recommendedTitle: 'You may like these games'
+  recommendedGames: gamesMock
 }
 
 jest.mock('templates/Base', () => ({

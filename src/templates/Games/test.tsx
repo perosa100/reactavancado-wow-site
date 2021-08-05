@@ -1,12 +1,12 @@
-import { MockedProvider } from '@apollo/client/testing'
 import { render, screen } from 'utils/test-utils'
-import userEvent from '@testing-library/user-event'
-import filterItemsMock from 'components/ExploreSidebar/mock'
-import apolloCache from 'utils/apolloCache'
+import { MockedProvider } from '@apollo/client/testing'
 
+import filterItemsMock from 'components/ExploreSidebar/mock'
 import { fetchMoreMock, gamesMock, noGamesMock } from './mocks'
 
 import Games from '.'
+import userEvent from '@testing-library/user-event'
+import apolloCache from 'utils/apolloCache'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')

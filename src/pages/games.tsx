@@ -1,10 +1,10 @@
-import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
-import { QUERY_GAMES } from 'graphql/queries/games'
-import { GetServerSidePropsContext } from 'next'
-import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
 import { initializeApollo } from 'utils/apollo'
+import { QUERY_GAMES } from 'graphql/queries/games'
+import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
+import { parseQueryStringToWhere } from 'utils/filter'
 
-import { parseQueryStringToWhere } from './../utils/filter/index'
+import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
+import { GetServerSidePropsContext } from 'next'
 
 export default function GamesPage(props: GamesTemplateProps) {
   return <GamesTemplate {...props} />
@@ -12,6 +12,7 @@ export default function GamesPage(props: GamesTemplateProps) {
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
+
   const filterPrice = {
     title: 'Price',
     name: 'price_lte',
@@ -85,7 +86,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 
   return {
     props: {
-      initialApoloState: apolloClient.cache.extract(),
+      initialApolloState: apolloClient.cache.extract(),
       filterItems
     }
   }

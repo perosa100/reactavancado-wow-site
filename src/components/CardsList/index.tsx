@@ -1,6 +1,5 @@
 import Heading from 'components/Heading'
 import { PaymentCard } from 'components/PaymentOptions'
-
 import * as S from './styles'
 
 export type CardsListProps = {

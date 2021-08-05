@@ -1,6 +1,6 @@
-import cardsMock from 'components/PaymentOptions/mock'
 import { render, screen } from 'utils/test-utils'
 
+import cardsMock from 'components/PaymentOptions/mock'
 import CardsList from '.'
 
 describe('<CardsList />', () => {
@@ -13,12 +13,12 @@ describe('<CardsList />', () => {
 
     expect(screen.getByRole('img', { name: /visa/i })).toHaveAttribute(
       'src',
-      '/img/cards/visa.png'
+      '/img/visa.png'
     )
 
     expect(screen.getByRole('img', { name: /mastercard/i })).toHaveAttribute(
       'src',
-      '/img/cards/mastercard.png'
+      '/img/master-card.png'
     )
 
     expect(screen.getByText(/4325/)).toBeInTheDocument()

@@ -22,7 +22,7 @@ export interface QueryHome_banners_button {
 
 export interface QueryHome_banners_ribbon {
   __typename: "ComponentPageRibbon";
-  text: string;
+  text: string | null;
   color: ENUM_COMPONENTPAGERIBBON_COLOR | null;
   size: ENUM_COMPONENTPAGERIBBON_SIZE | null;
 }
@@ -56,23 +56,23 @@ export interface QueryHome_newGames {
   price: number;
 }
 
-export interface QueryHome_upcomingGame_cover {
+export interface QueryHome_upcomingGames_cover {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface QueryHome_upcomingGame_developers {
+export interface QueryHome_upcomingGames_developers {
   __typename: "Developer";
   name: string;
 }
 
-export interface QueryHome_upcomingGame {
+export interface QueryHome_upcomingGames {
   __typename: "Game";
   id: string;
   name: string;
   slug: string;
-  cover: QueryHome_upcomingGame_cover | null;
-  developers: QueryHome_upcomingGame_developers[];
+  cover: QueryHome_upcomingGames_cover | null;
+  developers: QueryHome_upcomingGames_developers[];
   price: number;
 }
 
@@ -166,7 +166,7 @@ export interface QueryHome_sections_popularGames_games {
 
 export interface QueryHome_sections_popularGames {
   __typename: "ComponentPagePopularGames";
-  title: string | null;
+  title: string;
   highlight: QueryHome_sections_popularGames_highlight | null;
   games: QueryHome_sections_popularGames_games[];
 }
@@ -236,7 +236,7 @@ export interface QueryHome_sections {
 export interface QueryHome {
   banners: QueryHome_banners[];
   newGames: QueryHome_newGames[];
-  upcomingGame: QueryHome_upcomingGame[];
+  upcomingGames: QueryHome_upcomingGames[];
   freeGames: QueryHome_freeGames[];
   sections: QueryHome_sections | null;
 }

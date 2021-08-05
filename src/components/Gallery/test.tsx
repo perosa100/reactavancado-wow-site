@@ -1,10 +1,9 @@
 import 'match-media-mock'
-import { fireEvent, screen } from '@testing-library/react'
-import { render } from 'utils/test-utils'
-
-import mockItems from './mock'
+import { render, screen, fireEvent } from 'utils/test-utils'
 
 import Gallery from '.'
+
+import mockItems from './mock'
 
 describe('<Gallery />', () => {
   it('should render thumbnails as buttons', () => {

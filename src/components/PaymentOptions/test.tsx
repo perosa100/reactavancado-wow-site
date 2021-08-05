@@ -1,9 +1,8 @@
 import { render, screen, waitFor } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
 
-import cards from './mock'
-
 import PaymentOptions from '.'
+import cards from './mock'
 
 describe('<PaymentOptions />', () => {
   it('should render the saved card options and the add new card button', () => {

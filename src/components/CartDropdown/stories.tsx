@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import items from 'components/CartList/mock'
-
 import CartDropdown from '.'
+
+import items from 'components/CartList/mock'
 
 export default {
   title: 'CartDropdown',
@@ -23,7 +23,7 @@ Default.args = {
   cartContextValue: {
     items,
     quantity: items.length,
-    total: 'R$ 25.00'
+    total: 'R$ 300,00'
   }
 }
 

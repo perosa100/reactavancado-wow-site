@@ -15,6 +15,7 @@ export const InputWrapper = styled.div`
     padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
+
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
@@ -32,6 +33,7 @@ export const Input = styled.input<IconPositionProps>`
     border: 0;
     outline: none;
     width: ${iconPosition === 'right' ? `calc(100% - 2.2rem)` : `100%`};
+
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 ${theme.spacings.small}
         ${theme.colors.lightGray} inset;
@@ -53,6 +55,7 @@ export const Icon = styled.div<IconPositionProps>`
     display: flex;
     color: ${theme.colors.gray};
     order: ${iconPosition === 'right' ? 1 : 0};
+
     & > svg {
       width: 2.2rem;
       height: 100%;
@@ -72,6 +75,7 @@ const wrapperModifiers = {
     ${InputWrapper} {
       border-color: ${theme.colors.red};
     }
+
     ${Icon},
     ${Label} {
       color: ${theme.colors.red};
@@ -83,6 +87,7 @@ const wrapperModifiers = {
     ${Icon} {
       cursor: not-allowed;
       color: ${theme.colors.gray};
+
       &::placeholder {
         color: currentColor;
       }

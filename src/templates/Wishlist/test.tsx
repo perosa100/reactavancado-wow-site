@@ -1,16 +1,24 @@
 import 'match-media-mock'
 import { render, screen } from 'utils/test-utils'
-import gamesMock from 'components/GameCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 
 import Wishlist from '.'
 
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+
 const props = {
   games: gamesMock,
+  recommendedTitle: 'You may like these games',
   recommendedHighlight: highlightMock,
-  recommendedGames: gamesMock,
-  recommendedTitle: 'You may like these games'
+  recommendedGames: gamesMock
 }
+
+jest.mock('templates/Base', () => ({
+  __esModule: true,
+  default: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="Mock Base">{children}</div>
+  }
+}))
 
 jest.mock('components/Showcase', () => ({
   __esModule: true,

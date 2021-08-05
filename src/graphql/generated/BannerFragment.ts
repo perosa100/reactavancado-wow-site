@@ -22,7 +22,7 @@ export interface BannerFragment_button {
 
 export interface BannerFragment_ribbon {
   __typename: "ComponentPageRibbon";
-  text: string;
+  text: string | null;
   color: ENUM_COMPONENTPAGERIBBON_COLOR | null;
   size: ENUM_COMPONENTPAGERIBBON_SIZE | null;
 }

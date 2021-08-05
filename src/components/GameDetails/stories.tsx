@@ -1,8 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-
-import mockGame from './mock'
-
 import GameDetails, { GameDetailsProps } from '.'
+import mockGame from './mock'
 
 export default {
   title: 'Game/GameDetails',

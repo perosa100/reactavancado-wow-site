@@ -1,5 +1,5 @@
-import * as GameItemStyles from 'components/GameItem/styles'
 import styled from 'styled-components'
+import * as GameItemStyles from 'components/GameItem/styles'
 
 export const Wrapper = styled.div`
   ${GameItemStyles.Wrapper} {

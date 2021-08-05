@@ -1,11 +1,11 @@
-import Button from 'components/Button'
-import Empty from 'components/Empty'
-import GameItem from 'components/GameItem'
-import Loader from 'components/Loader'
-import { useCart } from 'hooks/use-cart'
 import Link from 'next/link'
+import Button from 'components/Button'
+import GameItem from 'components/GameItem'
 
 import * as S from './styles'
+import Empty from 'components/Empty'
+import { useCart } from 'hooks/use-cart'
+import Loader from 'components/Loader'
 
 export type CartListProps = {
   hasButton?: boolean
@@ -21,6 +21,7 @@ const CartList = ({ hasButton = false }: CartListProps) => {
       </S.Loading>
     )
   }
+
   return (
     <S.Wrapper isEmpty={!items.length}>
       {items.length ? (
@@ -30,6 +31,7 @@ const CartList = ({ hasButton = false }: CartListProps) => {
               <GameItem key={item.title} {...item} />
             ))}
           </S.GamesList>
+
           <S.Footer>
             {!hasButton && <span>Total:</span>}
             <S.Total>{total}</S.Total>

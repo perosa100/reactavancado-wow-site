@@ -1,8 +1,7 @@
 import { render, screen } from 'utils/test-utils'
 
-import mock from './mock'
-
 import OrdersList from '.'
+import mock from './mock'
 
 jest.mock('components/Empty', () => ({
   __esModule: true,

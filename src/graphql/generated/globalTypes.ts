@@ -29,7 +29,6 @@ export enum ENUM_GAME_RATING {
   BR14 = "BR14",
   BR16 = "BR16",
   BR18 = "BR18",
-  FREE = "FREE",
 }
 
 export interface UsersPermissionsRegisterInput {

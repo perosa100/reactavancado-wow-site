@@ -1,5 +1,5 @@
-import { render, screen } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
+import { render, screen } from 'utils/test-utils'
 
 import Dropdown from '.'
 
@@ -30,7 +30,7 @@ describe('<Dropdown />', () => {
     expect(content.getAttribute('aria-hidden')).toBe('false')
   })
 
-  it('should handle open/close dropdown whe clicking on overlay', () => {
+  it('should handle open/close dropdown when clicking on overlay', () => {
     const content = screen.getByText(/content/).parentElement!
     const overlay = content.nextElementSibling
 

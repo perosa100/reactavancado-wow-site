@@ -1,5 +1,5 @@
-import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 import { render, screen } from 'utils/test-utils'
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import Button from '.'
 

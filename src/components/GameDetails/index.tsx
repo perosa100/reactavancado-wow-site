@@ -1,4 +1,5 @@
 import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
+
 import Heading from 'components/Heading'
 import MediaMatch from 'components/MediaMatch'
 
@@ -10,14 +11,16 @@ type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
 
 export type GameDetailsProps = {
   developer: string
+  publisher: string
   platforms: Platform[]
   releaseDate: string
   rating: Rating
-  publisher: string
   genres: string[]
 }
 
 const GameDetails = ({
+  developer,
+  publisher,
   releaseDate,
   platforms,
   rating,
@@ -40,7 +43,7 @@ const GameDetails = ({
       <S.Content>
         <S.Block>
           <S.Label>Developer</S.Label>
-          <S.Description>Gearbox Software</S.Description>
+          <S.Description>{developer}</S.Description>
         </S.Block>
 
         <S.Block>
@@ -56,16 +59,16 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Platforms</S.Label>
-          <S.IconWrapper>
+          <S.IconsWrapper>
             {platforms.map((icon: Platform) => (
               <S.Icon key={icon}>{platformIcons[icon]}</S.Icon>
             ))}
-          </S.IconWrapper>
+          </S.IconsWrapper>
         </S.Block>
 
         <S.Block>
           <S.Label>Publisher</S.Label>
-          <S.Description>2K</S.Description>
+          <S.Description>{publisher}</S.Description>
         </S.Block>
 
         <S.Block>

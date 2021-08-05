@@ -1,8 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-
-import items from './mock'
-
 import Gallery, { GalleryProps } from '.'
+import items from './mock'
 
 export default {
   title: 'Gallery',

@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import { Add, ShoppingCart } from '@styled-icons/material-outlined'
+
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
-import { useState } from 'react'
 
 import * as S from './styles'
 

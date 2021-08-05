@@ -1,5 +1,5 @@
-import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import { ThemeProvider } from 'styled-components'
+import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 

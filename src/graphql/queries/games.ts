@@ -34,11 +34,9 @@ export const QUERY_GAME_BY_SLUG = gql`
       cover {
         src: url
       }
-
       developers {
         name
       }
-
       publisher {
         name
       }

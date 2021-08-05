@@ -1,8 +1,9 @@
-import * as ButtonStyles from 'components/Button/styles'
 import { tint } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
-export const Wrapper = styled.main``
+import * as ButtonStyles from 'components/Button/styles'
+
+export const Wrapper = styled.div``
 
 export const Body = styled.div`
   ${({ theme }) => css`

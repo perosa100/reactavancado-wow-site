@@ -2,7 +2,7 @@ import { useQueryGames } from 'graphql/queries/games'
 import { useContext, createContext, useState, useEffect } from 'react'
 import formatPrice from 'utils/format-price'
 import { getStorageItem, setStorageItem } from 'utils/localStorage'
-import { cartMapper } from 'utils/mapper'
+import { cartMapper } from 'utils/mappers'
 
 const CART_KEY = 'cartItems'
 

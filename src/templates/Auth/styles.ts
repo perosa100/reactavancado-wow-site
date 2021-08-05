@@ -1,7 +1,8 @@
-import * as HeadingStyles from 'components/Heading/styles'
-import * as LogoStyles from 'components/Logo/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+
+import * as HeadingStyles from 'components/Heading/styles'
+import * as LogoStyles from 'components/Logo/styles'
 
 export const Wrapper = styled.main`
   display: grid;
@@ -10,18 +11,21 @@ export const Wrapper = styled.main`
 
   ${media.greaterThan('medium')`
     grid-template-columns: 1fr 1fr;
-
   `}
 `
 
 export const BannerBlock = styled.div`
   ${({ theme }) => css`
     position: relative;
-    background-image: url('/img/auth-bg.jpg');
+    background-image: url(/img/auth-bg.jpg);
     background-size: cover;
     background-position: center center;
     padding: ${theme.spacings.xxlarge} ${theme.spacings.xxlarge}
       ${theme.spacings.large};
+
+    ${media.lessThan('medium')`
+      display: none;
+    `}
 
     &:after {
       content: '';
@@ -35,6 +39,7 @@ export const BannerBlock = styled.div`
     }
   `}
 `
+
 export const BannerContent = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
@@ -49,14 +54,10 @@ export const BannerContent = styled.div`
       width: fit-content;
       height: fit-content;
     }
-
-    ${media.lessThan('medium')`
-      display:none;
-    `}
   `}
 `
 
-export const SubTitle = styled.h3`
+export const Subtitle = styled.h3`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xxlarge};
     font-weight: ${theme.font.light};
@@ -67,6 +68,7 @@ export const SubTitle = styled.h3`
     }
   `}
 `
+
 export const Footer = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xsmall};
@@ -74,6 +76,7 @@ export const Footer = styled.p`
     align-self: end;
   `}
 `
+
 export const Content = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.white};
@@ -82,14 +85,14 @@ export const Content = styled.div`
     justify-content: center;
   `}
 `
+
 export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     width: 30rem;
 
     ${media.greaterThan('medium')`
-    width: 36rem;
-
-  `}
+      width: 36rem;
+    `}
 
     ${LogoStyles.Wrapper} {
       margin: 0 auto ${theme.spacings.xxlarge};

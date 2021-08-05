@@ -1,8 +1,8 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from 'utils/test-utils'
 import theme from 'styles/theme'
-import { render } from 'utils/test-utils'
 
 import GameCard from '.'
+
 const props = {
   id: '1',
   slug: 'population-zero',

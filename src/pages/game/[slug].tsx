@@ -1,21 +1,23 @@
+import { useRouter } from 'next/router'
+import { initializeApollo } from 'utils/apollo'
+
+import Game, { GameTemplateProps } from 'templates/Game'
+
+import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
+import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
 import {
   QueryGameBySlug,
   QueryGameBySlugVariables
 } from 'graphql/generated/QueryGameBySlug'
-import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
+import { GetStaticProps } from 'next'
 import { QueryRecommended } from 'graphql/generated/QueryRecommended'
+import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import {
   QueryUpcoming,
   QueryUpcomingVariables
 } from 'graphql/generated/QueryUpcoming'
-import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
-import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
 import { QUERY_UPCOMING } from 'graphql/queries/upcoming'
-import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
-import Game, { GameTemplateProps } from 'templates/Game'
-import { initializeApollo } from 'utils/apollo'
-import { gamesMapper, highlightMapper } from 'utils/mapper'
 
 const apolloClient = initializeApollo()
 
@@ -97,7 +99,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         genres: game.categories.map((category) => category.name)
       },
       upcomingTitle: upcoming.showcase?.upcomingGames?.title,
-      upcomingGames: gamesMapper(upcoming.upcomingGame),
+      upcomingGames: gamesMapper(upcoming.upcomingGames),
       upcomingHighlight: highlightMapper(
         upcoming.showcase?.upcomingGames?.highlight
       ),

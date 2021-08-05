@@ -9,23 +9,23 @@ import { ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT } from "./globalTypes";
 // GraphQL query operation: QueryUpcoming
 // ====================================================
 
-export interface QueryUpcoming_upcomingGame_cover {
+export interface QueryUpcoming_upcomingGames_cover {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface QueryUpcoming_upcomingGame_developers {
+export interface QueryUpcoming_upcomingGames_developers {
   __typename: "Developer";
   name: string;
 }
 
-export interface QueryUpcoming_upcomingGame {
+export interface QueryUpcoming_upcomingGames {
   __typename: "Game";
   id: string;
   name: string;
   slug: string;
-  cover: QueryUpcoming_upcomingGame_cover | null;
-  developers: QueryUpcoming_upcomingGame_developers[];
+  cover: QueryUpcoming_upcomingGames_cover | null;
+  developers: QueryUpcoming_upcomingGames_developers[];
   price: number;
 }
 
@@ -62,7 +62,7 @@ export interface QueryUpcoming_showcase {
 }
 
 export interface QueryUpcoming {
-  upcomingGame: QueryUpcoming_upcomingGame[];
+  upcomingGames: QueryUpcoming_upcomingGames[];
   showcase: QueryUpcoming_showcase | null;
 }
 
