@@ -1,7 +1,9 @@
+import '../.jest/next-image.mock'
 import { ThemeProvider } from 'styled-components'
 import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
+
 
 export const parameters = {
   backgrounds: {
@@ -33,5 +35,5 @@ export const decorators = [
         <Story />
       </CartContext.Provider>
     </ThemeProvider>
-  )
-]
+  ),
+];

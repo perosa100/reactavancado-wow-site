@@ -10,7 +10,6 @@ type ResetReqBody = {
   passwordConfirmation: string
 }
 
-// onde vamos interceptar as chamadas
 export const handlers = [
   rest.post<LoginReqBody>(
     `${process.env.NEXT_PUBLIC_API_URL}/auth/forgot-password`,

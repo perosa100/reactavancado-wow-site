@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-
 import * as HeadingStyles from 'components/Heading/styles'
 import * as LogoStyles from 'components/Logo/styles'
 
@@ -62,7 +61,6 @@ export const Subtitle = styled.h3`
     font-size: ${theme.font.sizes.xxlarge};
     font-weight: ${theme.font.light};
     margin-top: ${theme.spacings.xxsmall};
-
     strong {
       color: ${theme.colors.primary};
     }
@@ -97,7 +95,6 @@ export const ContentWrapper = styled.div`
     ${LogoStyles.Wrapper} {
       margin: 0 auto ${theme.spacings.xxlarge};
     }
-
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.medium};
     }

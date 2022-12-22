@@ -22,7 +22,6 @@ exports[`<GameInfo /> should render game informations 1`] = `
   justify-content: center;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
-  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   border: 0;
   cursor: pointer;
   border-radius: 0.4rem;
@@ -32,6 +31,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
+}
+
+.c6:focus {
+  outline: 1px dashed;
 }
 
 .c6:hover {
@@ -61,7 +64,6 @@ exports[`<GameInfo /> should render game informations 1`] = `
   justify-content: center;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
-  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   border: 0;
   cursor: pointer;
   border-radius: 0.4rem;
@@ -73,6 +75,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   padding: 0.8rem 4.8rem;
   background: none;
   color: #F231A5;
+}
+
+.c8:focus {
+  outline: 1px dashed;
 }
 
 .c8:hover {
@@ -101,7 +107,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
 .c1::after {
   position: absolute;
   left: 0;
-  bottom: -0.5rem;
+  bottom: -1rem;
   content: '';
   width: 5rem;
   border-bottom: 0.5rem solid #F231A5;
@@ -120,11 +126,12 @@ exports[`<GameInfo /> should render game informations 1`] = `
   align-items: center;
   font-weight: 600;
   color: #FAFAFA;
-  background-color: #3CD3C1;
+  z-index: 10;
   font-size: 1.4rem;
   padding: 0 2.4rem;
   height: 3.6rem;
   right: -2rem;
+  background-color: #3CD3C1;
 }
 
 .c3::before {
@@ -139,14 +146,14 @@ exports[`<GameInfo /> should render game informations 1`] = `
 }
 
 .c3::before {
-  border-left-color: #1f8a7d;
-  border-top-color: #1f8a7d;
-}
-
-.c3::before {
   top: 3.6rem;
   border-top-width: 1rem;
   border-right-width: 2rem;
+}
+
+.c3::before {
+  border-left-color: #1f8a7d;
+  border-top-color: #1f8a7d;
 }
 
 .c0 {
@@ -188,7 +195,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
   margin-bottom: 0.8rem;
 }
 
-@media (min-width:768px) {
+@media (max-width:768px) {
   .c1 {
     font-size: 2.8rem;
   }
@@ -227,6 +234,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
 
 <div
   class="c0"
+  data-cy="game-info"
 >
   <h2
     class="c1"
@@ -249,11 +257,11 @@ exports[`<GameInfo /> should render game informations 1`] = `
     class="c5"
   >
     <button
+      aria-label="Add to cart"
       class="c6"
     >
       <svg
         aria-hidden="true"
-        aria-label="Add to cart"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -277,6 +285,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to Wishlist"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -292,7 +301,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
         />
       </svg>
       <span>
-        Wishlist
+        Add to Wishlist
       </span>
     </button>
   </div>

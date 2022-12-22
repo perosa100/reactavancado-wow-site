@@ -2,6 +2,13 @@ import { render, screen, fireEvent } from 'utils/test-utils'
 
 import Menu from '.'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+useRouter.mockImplementation(() => ({
+  query: {}
+}))
+
 describe('<Menu />', () => {
   it('should render the menu', () => {
     render(<Menu />)
@@ -15,7 +22,7 @@ describe('<Menu />', () => {
   it('should handle the open/close mobile menu', () => {
     render(<Menu />)
 
-    // selecionar o nosso MenuFull
+    // selecionar MenuFull
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
 
     // verificar se o menu tá escondido
@@ -38,16 +45,16 @@ describe('<Menu />', () => {
 
     expect(screen.queryByText(/my profile/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
-    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
     expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
+    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
   })
 
-  it('should show wishlight and account when logged in', () => {
+  it('should show wishlist and account when logged in', () => {
     render(<Menu username="will" />)
 
     expect(screen.getAllByText(/my profile/i)).toHaveLength(2)
     expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
-    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
   })
 

@@ -1,5 +1,4 @@
 import { render } from 'utils/test-utils'
-
 import { Grid } from '.'
 
 describe('<Grid />', () => {

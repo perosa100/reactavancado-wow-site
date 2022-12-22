@@ -13,11 +13,9 @@ export const Content = styled.div`
     gap: ${theme.spacings.xsmall};
     grid-template-columns: repeat(2, 1fr);
     margin-top: ${theme.spacings.small};
-
     ${media.greaterThan('medium')`
       grid-template-columns: repeat(3, 1fr);
     `}
-
     ${media.greaterThan('large')`
       grid-template-columns: repeat(6, 1fr);
     `}

@@ -1,5 +1,4 @@
 import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
-
 import Heading from 'components/Heading'
 import MediaMatch from 'components/MediaMatch'
 
@@ -33,7 +32,7 @@ const GameDetails = ({
   }
 
   return (
-    <S.Wrapper>
+    <S.Wrapper data-cy="game-details">
       <MediaMatch greaterThan="small">
         <Heading lineLeft lineColor="secondary">
           Game Details

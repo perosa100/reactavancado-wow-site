@@ -1,4 +1,5 @@
 import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart'
+
 import { useCart } from 'hooks/use-cart'
 
 import * as S from './styles'

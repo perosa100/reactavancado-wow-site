@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from 'utils/test-utils'
+
 import userEvent from '@testing-library/user-event'
 
-import theme from 'styles/theme'
 import Checkbox from '.'
 
 describe('<Checkbox />', () => {
@@ -10,13 +10,8 @@ describe('<Checkbox />', () => {
       <Checkbox label="checkbox label" labelFor="check" />
     )
 
-    // input a partir do papel / role
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
-
-    // input a partir da label associada
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
-
-    // label a partir do texto dela
     expect(screen.getByText(/checkbox label/i)).toHaveAttribute('for', 'check')
 
     expect(container.firstChild).toMatchSnapshot()
@@ -34,7 +29,7 @@ describe('<Checkbox />', () => {
     )
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
-      color: theme.colors.black
+      color: '#030517'
     })
   })
 
@@ -56,6 +51,8 @@ describe('<Checkbox />', () => {
     const onCheck = jest.fn()
 
     render(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />)
+
+    expect(onCheck).not.toHaveBeenCalled()
 
     userEvent.click(screen.getByRole('checkbox'))
     await waitFor(() => {

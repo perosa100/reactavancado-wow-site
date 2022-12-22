@@ -58,7 +58,7 @@ describe('<Heading />', () => {
     })
   })
 
-  it('should render a Heading with a primary line color', () => {
+  it('should render a heading with a primary line color', () => {
     render(
       <Heading lineColor="primary" lineLeft lineBottom>
         Lorem Ipsum
@@ -72,7 +72,7 @@ describe('<Heading />', () => {
     })
   })
 
-  it('should render a Heading with a secondary line color', () => {
+  it('should render a heading with a secondary line color', () => {
     render(
       <Heading lineColor="secondary" lineLeft lineBottom>
         Lorem Ipsum

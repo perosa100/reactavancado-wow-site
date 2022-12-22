@@ -17,6 +17,12 @@ export const QUERY_GAMES = gql`
   ${GameFragment}
 `
 
+export function useQueryGames(
+  options?: QueryHookOptions<QueryGames, QueryGamesVariables>
+) {
+  return useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, options)
+}
+
 export const QUERY_GAME_BY_SLUG = gql`
   query QueryGameBySlug($slug: String!) {
     games(where: { slug: $slug }) {
@@ -28,7 +34,7 @@ export const QUERY_GAME_BY_SLUG = gql`
       rating
       release_date
       gallery {
-        src: url
+        url
         label: alternativeText
       }
       cover {
@@ -49,9 +55,3 @@ export const QUERY_GAME_BY_SLUG = gql`
     }
   }
 `
-
-export function useQueryGames(
-  options?: QueryHookOptions<QueryGames, QueryGamesVariables>
-) {
-  return useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, options)
-}

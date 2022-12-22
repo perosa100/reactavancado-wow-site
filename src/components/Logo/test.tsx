@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import Logo from '.'
 
 describe('<Logo />', () => {
@@ -20,13 +19,6 @@ describe('<Logo />', () => {
     render(<Logo color="black" />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
       color: '#030517'
-    })
-  })
-
-  it('should render a normal logo when size is default', () => {
-    render(<Logo />)
-    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      width: '11rem'
     })
   })
 

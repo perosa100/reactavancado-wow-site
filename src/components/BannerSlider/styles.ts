@@ -10,7 +10,6 @@ export const Wrapper = styled.section`
       align-items: center;
       justify-content: center;
       margin-top: ${theme.spacings.small};
-
       li {
         background: ${theme.colors.white};
         width: 1.2rem;
@@ -21,12 +20,10 @@ export const Wrapper = styled.section`
         justify-content: center;
         margin: 0 ${theme.spacings.xxsmall};
         cursor: pointer;
-
         &.slick-active {
           background: ${theme.colors.primary};
         }
       }
-
       button {
         opacity: 0;
         width: 1.2rem;
@@ -34,13 +31,11 @@ export const Wrapper = styled.section`
         cursor: pointer;
       }
     }
-
     ${media.greaterThan('large')`
       ${BannerStyles.Wrapper} {
         max-width: 104rem;
         margin: 0 auto;
       }
-
       .slick-dots {
         position: absolute;
         right: 0;
@@ -48,7 +43,6 @@ export const Wrapper = styled.section`
         height: 100%;
         top: 0;
         margin: 0;
-
         li {
           margin: ${theme.spacings.xxsmall} 0;
         }

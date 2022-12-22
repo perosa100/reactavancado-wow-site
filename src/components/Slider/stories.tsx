@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { Settings } from 'react-slick'
 import styled from 'styled-components'
-
 import Slider from '.'
 
 export default {
@@ -34,6 +33,7 @@ export const Horizontal: Story = () => (
     <Slide>4</Slide>
     <Slide>5</Slide>
     <Slide>6</Slide>
+    <Slide>7</Slide>
   </Slider>
 )
 
@@ -53,5 +53,6 @@ export const Vertical: Story = () => (
     <Slide>4</Slide>
     <Slide>5</Slide>
     <Slide>6</Slide>
+    <Slide>7</Slide>
   </Slider>
 )

@@ -6,14 +6,14 @@ import * as S from './styles'
 const props = {
   title: 'Heading 1',
   subtitle: 'Heading 2',
-  backgroundImage: '/img/red-dead-img.jpg',
   buttonLabel: 'Buy now',
-  buttonLink: '/rdr2'
+  buttonLink: '/rdr2',
+  backgroundImage: 'img/red-dead-img.jpg'
 }
 
 describe('<Highlight />', () => {
   it('should render headings and button', () => {
-    const { container } = render(<Highlight {...props} />)
+    render(<Highlight {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /heading 1/i })
@@ -24,24 +24,22 @@ describe('<Highlight />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render background image', () => {
-    const { container } = render(<Highlight {...props} />)
+    render(<Highlight {...props} />)
 
-    expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`
-    })
+    expect(
+      screen.getByRole('img', { name: `${props.title} background` })
+    ).toHaveAttribute('src', `${props.backgroundImage}`)
   })
 
   it('should render float image', () => {
-    render(<Highlight {...props} floatImage="/float-image.png" />)
+    render(<Highlight {...props} floatImage="/img/red-dead-float.png" />)
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      '/float-image.png'
+      '/img/red-dead-float.png'
     )
   })
 
@@ -58,7 +56,7 @@ describe('<Highlight />', () => {
     })
   })
 
-  it('should render align left by default', () => {
+  it('should render align left', () => {
     const { container } = render(<Highlight {...props} alignment="left" />)
 
     expect(container.firstChild).toHaveStyleRule(

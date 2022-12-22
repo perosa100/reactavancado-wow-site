@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import GameDetails, { GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {

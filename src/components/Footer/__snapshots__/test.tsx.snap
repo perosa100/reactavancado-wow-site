@@ -11,7 +11,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
 .c5::after {
   position: absolute;
   left: 0;
-  bottom: -0.5rem;
+  bottom: -1rem;
   content: '';
   width: 5rem;
   border-bottom: 0.5rem solid #3CD3C1;
@@ -33,7 +33,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
 
 .c2 {
   display: grid;
-  grid-template-columns: minmax(auto,50%) 1fr;
+  grid-template-columns: repeat(2,1fr);
   gap: 3.2rem;
   margin-top: 3.2rem;
 }
@@ -41,16 +41,11 @@ exports[`<Footer /> should render 4 column topics 1`] = `
 .c3 a,
 .c3 span {
   display: block;
-  color: #8F8F8F;
+  color: #5c5c5c;
   -webkit-text-decoration: none;
   text-decoration: none;
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-}
-
-.c3 a {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  margin-bottom: 2.4rem;
+  font-size: 1.6rem;
 }
 
 .c3 a:hover {
@@ -165,18 +160,19 @@ exports[`<Footer /> should render 4 column topics 1`] = `
     class="c2"
   >
     <div
+      aria-labelledby="social-media"
       class="c3"
     >
       <h2
         class="c4 c5"
         color="black"
       >
-        Contact Us
+        Contact
       </h2>
       <a
-        href="mailto:sac@wongames.com"
+        href="mailto:me@rodrigofernand.es"
       >
-        sac@wongames.com
+        me@rodrigofernand.es
       </a>
     </div>
     <div
@@ -189,32 +185,32 @@ exports[`<Footer /> should render 4 column topics 1`] = `
         Follow us
       </h2>
       <nav
-        aria-labelledby="social media"
+        id="social-media"
       >
         <a
           href="https://www.instagram.com/won-games"
-          rel="noopenner, noreferrer"
+          rel="noopenner noreferrer"
           target="_blank"
         >
           Instagram
         </a>
         <a
           href="https://www.twitter.com/won-games"
-          rel="noopenner, noreferrer"
+          rel="noopenner noreferrer"
           target="_blank"
         >
           Twitter
         </a>
         <a
           href="https://www.youtube.com/won-games"
-          rel="noopenner, noreferrer"
+          rel="noopenner noreferrer"
           target="_blank"
         >
           Youtube
         </a>
         <a
           href="https://www.facebook.com/won-games"
-          rel="noopenner, noreferrer"
+          rel="noopenner noreferrer"
           target="_blank"
         >
           Facebook
@@ -222,6 +218,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
       </nav>
     </div>
     <div
+      aria-labelledby="resources"
       class="c3"
     >
       <h2
@@ -231,7 +228,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
         Links
       </h2>
       <nav
-        aria-labelledby="footer resources"
+        id="resources"
       >
         <a
           href="/"
@@ -251,7 +248,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
       </nav>
     </div>
     <div
-      aria-labelledby="footer-contact"
+      aria-label="contact"
       class="c3"
     >
       <h2
@@ -274,7 +271,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
   <div
     class="c6"
   >
-    Won Games 2020 © All rights reserved.
+    Won Games 2021 © All Rights Reserved
   </div>
 </footer>
-`
+`;

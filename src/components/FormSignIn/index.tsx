@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { signIn } from 'next-auth/client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
 import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
 
 import { FormLink, FormWrapper, FormLoading, FormError } from 'components/Form'
@@ -38,7 +37,6 @@ const FormSignIn = () => {
 
     setFieldError({})
 
-    // sign in
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
@@ -51,8 +49,7 @@ const FormSignIn = () => {
 
     setLoading(false)
 
-    // jogar o erro
-    setFormError('username or password is invalid')
+    setFormError('Username or password is invalid')
   }
 
   return (

@@ -1,6 +1,5 @@
 import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
-
 import CartList from '.'
 import items from './mock'
 

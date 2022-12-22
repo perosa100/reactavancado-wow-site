@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import Heading from 'components/Heading'
 import Logo from 'components/Logo'
 import * as S from './styles'
@@ -7,72 +6,64 @@ import * as S from './styles'
 const Footer = () => (
   <S.Wrapper>
     <Logo color="black" />
-    <S.Content>
-      <S.Column>
-        <Heading color="black" size="small" lineBottom lineColor="secondary">
-          Contact Us
-        </Heading>
 
-        <a href="mailto:sac@wongames.com">sac@wongames.com</a>
+    <S.Content>
+      <S.Column aria-labelledby="social-media">
+        <Heading color="black" size="small" lineBottom lineColor="secondary">
+          Contact
+        </Heading>
+        <a href="mailto:me@rodrigofernand.es">me@rodrigofernand.es</a>
       </S.Column>
 
       <S.Column>
-        <Heading color="black" lineColor="secondary" lineBottom size="small">
+        <Heading color="black" size="small" lineBottom lineColor="secondary">
           Follow us
         </Heading>
-
-        <nav aria-labelledby="social media">
+        <nav id="social-media">
           <a
             href="https://www.instagram.com/won-games"
+            rel="noopenner noreferrer"
             target="_blank"
-            rel="noopenner, noreferrer"
           >
             Instagram
           </a>
           <a
             href="https://www.twitter.com/won-games"
+            rel="noopenner noreferrer"
             target="_blank"
-            rel="noopenner, noreferrer"
           >
             Twitter
           </a>
           <a
             href="https://www.youtube.com/won-games"
+            rel="noopenner noreferrer"
             target="_blank"
-            rel="noopenner, noreferrer"
           >
             Youtube
           </a>
           <a
             href="https://www.facebook.com/won-games"
+            rel="noopenner noreferrer"
             target="_blank"
-            rel="noopenner, noreferrer"
           >
             Facebook
           </a>
         </nav>
       </S.Column>
 
-      <S.Column>
-        <Heading color="black" lineColor="secondary" lineBottom size="small">
+      <S.Column aria-labelledby="resources">
+        <Heading color="black" size="small" lineBottom lineColor="secondary">
           Links
         </Heading>
-
-        <nav aria-labelledby="footer resources">
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-          <Link href="/games">
-            <a>Store</a>
-          </Link>
-          <Link href="/search">
-            <a>Buscar</a>
-          </Link>
+        <nav id="resources">
+          <Link href="/">Home</Link>
+          <Link href="/games">Store</Link>
+          <Link href="/search">Buscar</Link>
         </nav>
       </S.Column>
 
-      <S.Column aria-labelledby="footer-contact">
-        <Heading color="black" lineColor="secondary" lineBottom size="small">
+      <S.Column aria-label="contact">
+        <Heading color="black" size="small" lineBottom lineColor="secondary">
           Location
         </Heading>
         <span>Lorem ipsum dolor sit.</span>
@@ -81,7 +72,7 @@ const Footer = () => (
       </S.Column>
     </S.Content>
 
-    <S.Copyright>Won Games 2020 © All rights reserved.</S.Copyright>
+    <S.Copyright>Won Games 2021 © All Rights Reserved</S.Copyright>
   </S.Wrapper>
 )
 

@@ -4,13 +4,12 @@ import Ribbon from '.'
 
 describe('<Ribbon />', () => {
   it('should render the text correctly', () => {
-    const { container } = render(<Ribbon>Best Seller</Ribbon>)
+    render(<Ribbon>Best Seller</Ribbon>)
 
     expect(screen.getByText(/Best Seller/i)).toBeInTheDocument()
-    expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('should render with the primary color', () => {
+  it('should render with primary color', () => {
     render(<Ribbon>Best Seller</Ribbon>)
 
     expect(screen.getByText(/Best Seller/i)).toHaveStyle({
@@ -18,7 +17,7 @@ describe('<Ribbon />', () => {
     })
   })
 
-  it('should render with the secondary color', () => {
+  it('should render with secondary color', () => {
     render(<Ribbon color="secondary">Best Seller</Ribbon>)
 
     expect(screen.getByText(/Best Seller/i)).toHaveStyle({

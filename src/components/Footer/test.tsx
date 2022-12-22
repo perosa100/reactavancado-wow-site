@@ -1,5 +1,4 @@
 import { render, screen } from 'utils/test-utils'
-
 import Footer from '.'
 
 describe('<Footer />', () => {
@@ -7,7 +6,7 @@ describe('<Footer />', () => {
     const { container } = render(<Footer />)
 
     expect(
-      screen.getByRole('heading', { name: /contact us/i })
+      screen.getByRole('heading', { name: /contact/i })
     ).toBeInTheDocument()
 
     expect(

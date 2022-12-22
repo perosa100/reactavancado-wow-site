@@ -15,7 +15,7 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CheckboxProps> = (args) => (
+export const Basic: Story<CheckboxProps> = (args) => (
   <>
     <div style={{ padding: 10 }}>
       <Checkbox

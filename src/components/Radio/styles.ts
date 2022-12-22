@@ -20,11 +20,9 @@ export const Input = styled.input`
     transition: background ${theme.transition.fast};
     outline: none;
     cursor: pointer;
-
     &:focus {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
-
     &:before {
       content: '';
       width: 0.8rem;
@@ -35,7 +33,6 @@ export const Input = styled.input`
       opacity: 0;
       position: absolute;
     }
-
     &:checked {
       &:before {
         opacity: 1;

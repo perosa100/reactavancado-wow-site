@@ -9,7 +9,6 @@ export const Nav = styled.nav`
     ${media.greaterThan('medium')`
       flex-direction: column;
       border: 0;
-
       a:not(:last-child) {
         border-bottom: 0.1rem solid ${theme.colors.lightGray};
       }
@@ -54,7 +53,6 @@ export const Link = styled.a<LinkProps>`
     ${media.lessThan('medium')`
       justify-content: center;
       flex: 1;
-
       > span {
         display: none;
       }

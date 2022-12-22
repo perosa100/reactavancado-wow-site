@@ -1,5 +1,5 @@
-import { CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/test-utils'
+import { CartContextDefaultValues } from 'hooks/use-cart'
 
 import CartIcon from '.'
 

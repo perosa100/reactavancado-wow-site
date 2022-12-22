@@ -5,13 +5,13 @@ import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
-import Button from 'components/Button'
 import Logo from 'components/Logo'
-import MediaMatch from 'components/MediaMatch'
 import * as S from './styles'
 import CartDropdown from 'components/CartDropdown'
 import CartIcon from 'components/CartIcon'
 import UserDropdown from 'components/UserDropdown'
+import Button from 'components/Button'
+import MediaMatch from 'components/MediaMatch'
 
 export type MenuProps = {
   username?: string | null
@@ -24,8 +24,8 @@ const Menu = ({ username, loading }: MenuProps) => {
   return (
     <S.Wrapper>
       <MediaMatch lessThan="medium">
-        <S.IconWrapper onClick={() => setIsOpen(true)}>
-          <MenuIcon aria-label="Open Menu" />
+        <S.IconWrapper>
+          <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
         </S.IconWrapper>
       </MediaMatch>
 
@@ -89,7 +89,6 @@ const Menu = ({ username, loading }: MenuProps) => {
               <Link href="/games" passHref>
                 <S.MenuLink>Explore</S.MenuLink>
               </Link>
-
               {!!username && (
                 <>
                   <Link href="/profile/me" passHref>

@@ -1,5 +1,6 @@
 import { render, screen } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
+
 import { css } from 'styled-components'
 
 import ExploreSidebar from '.'
@@ -79,7 +80,6 @@ describe('<ExploreSidebar />', () => {
     userEvent.click(screen.getByLabelText(/linux/i))
     userEvent.click(screen.getByLabelText(/low to high/i))
 
-    // 1st render (initialValues) + 3 clicks
     expect(onFilter).toHaveBeenCalledTimes(4)
 
     expect(onFilter).toBeCalledWith({

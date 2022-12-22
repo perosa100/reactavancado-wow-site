@@ -15,14 +15,14 @@ describe('<Banner />', () => {
     const { container } = render(<Banner {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /Defy death/i })
+      screen.getByRole('heading', { name: /defy death/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Play the new CrashLands season/i })
+      screen.getByRole('heading', { name: /play the new CrashLands season/i })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('img', { name: /Defy death/i })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /defy death/i })).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -37,7 +37,7 @@ describe('<Banner />', () => {
       />
     )
 
-    const ribbon = screen.getByText(/My Ribbon/i)
+    const ribbon = screen.getByText(/my ribbon/i)
 
     expect(ribbon).toBeInTheDocument()
     expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' })

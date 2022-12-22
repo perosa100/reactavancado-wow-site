@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 import { GameFragment } from 'graphql/fragments/game'
-import { HighlightFragment } from 'graphql/fragments/highlight'
+import { HighlightFragment } from 'graphql/fragments/highlights'
 
 export const QUERY_UPCOMING = gql`
   query QueryUpcoming($date: Date!) {
@@ -11,7 +11,6 @@ export const QUERY_UPCOMING = gql`
     ) {
       ...GameFragment
     }
-
     showcase: home {
       upcomingGames {
         title
@@ -21,7 +20,6 @@ export const QUERY_UPCOMING = gql`
       }
     }
   }
-
   ${GameFragment}
   ${HighlightFragment}
 `

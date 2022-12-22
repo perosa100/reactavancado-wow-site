@@ -1,12 +1,13 @@
 import theme from 'styles/theme'
 import { render } from 'utils/test-utils'
+
 import { Container } from '.'
 
 describe('<Container />', () => {
-  it('should render the heading', () => {
+  it('should render a container with a maximum width', () => {
     const { container } = render(
       <Container>
-        <span>Won Games</span>
+        <span>Won games</span>
       </Container>
     )
 
@@ -29,7 +30,7 @@ describe('<Container />', () => {
         class="c0"
       >
         <span>
-          Won Games
+          Won games
         </span>
       </div>
     `)

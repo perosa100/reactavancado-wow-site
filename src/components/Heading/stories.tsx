@@ -14,6 +14,5 @@ export default {
 export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 
 Default.args = {
-  children: 'Most Populars',
-  color: 'black'
+  children: 'Most Popular'
 }

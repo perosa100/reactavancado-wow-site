@@ -17,9 +17,7 @@ const Base = ({ children }: BaseTemplateProps) => {
       <Container>
         <Menu username={session?.user?.name} loading={loading} />
       </Container>
-
       <S.Content>{children}</S.Content>
-
       <S.SectionFooter>
         <Container>
           <Footer />
